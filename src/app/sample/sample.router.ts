@@ -30,8 +30,9 @@ router.delete("/", (req, res) => {
 });
 
 router.post("/expo-push-tokens", (req, res) => {
-  const pushToken = req.body.pushToken.data;
-  const message = req.body.pushToken.message;
+  console.log("REQ:", req.body.pushToken);
+  const pushToken = req.body.data;
+  const message = "Congratulations! You Won!";
   sendPushNotification(pushToken, message)
     .then((data) =>
       res.status(200).send({
